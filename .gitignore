@@ -2,3 +2,6 @@
 
 **/**/*.settings
 **/**/*.project
+
+**/**/.idea
+**/**/*.iml
