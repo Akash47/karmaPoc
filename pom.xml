@@ -10,6 +10,7 @@
    <modules>
       <module>./practice/collection</module>
 	  <module>./practice/java-streams</module>
+	  <module>./practice/java-reflection</module>
    </modules>
    <properties>
       <maven.compiler.source>1.8</maven.compiler.source>
