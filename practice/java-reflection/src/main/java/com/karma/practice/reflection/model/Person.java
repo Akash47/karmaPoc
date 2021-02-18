@@ -1,7 +1,14 @@
 package com.karma.practice.reflection.model;
 
+import com.karma.practice.reflection.annotations.Column;
+import com.karma.practice.reflection.annotations.PrimaryKey;
+
 public class Person {
+    @PrimaryKey
+    private long id;
+    @Column
     private String name;
+    @Column
     private int age;
 
     public Person() {
@@ -36,6 +43,7 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
+                "id='" + id + '\'' +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
