@@ -5,9 +5,13 @@ import com.karma.practice.reflection.annotations.PrimaryKey;
 import java.lang.reflect.Field;
 
 public class PrimaryKeyField {
-    private Field field ;
-    public PrimaryKeyField( Field primaryKeys) {
+
+    private Field field;
+    private PrimaryKey primaryKey;
+
+    public PrimaryKeyField(Field primaryKeys) {
         this.field = primaryKeys;
+        this.primaryKey = field.getAnnotation(PrimaryKey.class);
     }
 
     public Class<?> getType() {
@@ -15,6 +19,11 @@ public class PrimaryKeyField {
     }
 
     public String getName() {
-        return this.field.getName();
+        return this.primaryKey.name();
     }
+
+    public Field getField() {
+        return field;
+    }
+
 }

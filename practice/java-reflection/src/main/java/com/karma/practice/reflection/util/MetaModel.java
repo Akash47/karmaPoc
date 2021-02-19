@@ -6,6 +6,8 @@ import com.karma.practice.reflection.annotations.PrimaryKey;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class MetaModel<T> {
     private Class<T> clss;
@@ -40,4 +42,41 @@ public class MetaModel<T> {
         }
         return aColumnFields;
     }
+
+    public String buildInsertRequest() {
+        //insert into Person(id, name ,age) value(?,?,?);
+        String columnElement = buildColumnName();
+        String questionElement = buildQuestionElement();
+        return "insert into "+ this.clss.getSimpleName() + " ( "
+                + columnElement +" ) " +"values"+ " ( "
+                + questionElement + ")";
+    }
+
+    public String buildSelectRequest() {
+        //Select id, name ,age from Person where id = ?
+        String columnElement = buildColumnName();
+        return "Select " + columnElement + " from " +
+                this.clss.getSimpleName() +" where "+ getPrimaryKey().getName() + " = ?";
+    }
+
+    private String buildQuestionElement() {
+        int numberOfColumns = getColumns().size() + 1;
+        String questionElement = IntStream.range(0, numberOfColumns).
+                mapToObj(index -> "?")
+                .collect(Collectors.joining(", "));
+        return questionElement;
+    }
+
+    private String buildColumnName() {
+        String primaryKeyColumnName = getPrimaryKey().getName();
+        List<String> columnNames = getColumns()
+                .stream()
+                .map(ColumnField::getName)
+                .collect(Collectors.toList());
+        columnNames.add(0,primaryKeyColumnName);
+        String columnElement = String.join(",",columnNames);
+        return columnElement;
+    }
+
+
 }

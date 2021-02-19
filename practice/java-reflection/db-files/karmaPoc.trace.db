@@ -1,0 +1,15 @@
+2021-02-19 15:06:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PERSON" not found; SQL statement:
+Select * from Person [42102-200]
+2021-02-19 15:08:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "id" not found [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3169)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3268)
+	at org.h2.jdbc.JdbcResultSet.getLong(JdbcResultSet.java:680)
+	at com.karma.practice.reflection.orm.AbstractEntityManager.buildInstanceFrom(AbstractEntityManager.java:42)
+	at com.karma.practice.reflection.orm.AbstractEntityManager.find(AbstractEntityManager.java:30)
+	at com.karma.practice.reflection.objectrelationalmapper.ReadingObjects.main(ReadingObjects.java:13)

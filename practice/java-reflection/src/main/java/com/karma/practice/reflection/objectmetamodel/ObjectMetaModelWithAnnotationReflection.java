@@ -1,4 +1,4 @@
-package com.karma.practice.reflection;
+package com.karma.practice.reflection.objectmetamodel;
 
 import com.karma.practice.reflection.util.ColumnField;
 import com.karma.practice.reflection.util.MetaModel;

@@ -4,11 +4,13 @@ import com.karma.practice.reflection.annotations.Column;
 import com.karma.practice.reflection.annotations.PrimaryKey;
 
 public class Person {
-    @PrimaryKey
+    @PrimaryKey(name="k_id")
     private long id;
-    @Column
+
+    @Column(name = "c_name")
     private String name;
-    @Column
+
+    @Column(name = "c_age")
     private int age;
 
     public Person() {
