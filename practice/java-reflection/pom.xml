@@ -6,14 +6,6 @@
     <groupId>com.karma.practice</groupId>
     <artifactId>java-reflection</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <dependencies>
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.4.200</version>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
     <parent>
         <groupId>com.karma.poc</groupId>
         <artifactId>karma-poc</artifactId>
