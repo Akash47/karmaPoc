@@ -9,21 +9,65 @@
    <packaging>pom</packaging>
    <modules>
       <module>./practice/collection</module>
-	  <module>./practice/java-streams</module>
-	  <module>./practice/java-reflection</module>
+      <module>./practice/java-streams</module>
+      <module>./practice/java-reflection</module>
+      <module>./practice/Junit5</module>
    </modules>
    <properties>
-      <maven.compiler.source>1.8</maven.compiler.source>
-      <maven.compiler.target>1.8</maven.compiler.target>
+      <maven.compiler.source>9</maven.compiler.source>
+      <maven.compiler.target>9</maven.compiler.target>
    </properties>
    <dependencies>
-	   <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
-	    <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.4.200</version>
-            <scope>compile</scope>
-        </dependency>
+   <!-- https://mvnrepository.com/artifact/org.jacoco/jacoco-maven-plugin -->
+<dependency>
+    <groupId>org.jacoco</groupId>
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <version>0.8.3</version>
+</dependency>
+		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-params -->
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-params</artifactId>
+    <version>5.4.0</version>
+    <scope>test</scope>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+<dependency>
+    <groupId>org.mockito</groupId>
+    <artifactId>mockito-core</artifactId>
+    <version>3.7.7</version>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>org.mockito</groupId>
+    <artifactId>mockito-junit-jupiter</artifactId>
+    <version>2.23.0</version>
+    <scope>test</scope>
+</dependency>
+      <dependency>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-surefire-plugin</artifactId>
+         <version>3.0.0-M5</version>
+         <type>maven-plugin</type>
+      </dependency>
+      <dependency>
+         <groupId>org.junit.jupiter</groupId>
+         <artifactId>junit-jupiter-api</artifactId>
+         <version>5.4.0</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.junit.jupiter</groupId>
+         <artifactId>junit-jupiter-engine</artifactId>
+         <version>5.4.0</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>com.h2database</groupId>
+         <artifactId>h2</artifactId>
+         <version>1.4.200</version>
+         <scope>compile</scope>
+      </dependency>
       <dependency>
          <groupId>org.hamcrest</groupId>
          <artifactId>hamcrest</artifactId>
