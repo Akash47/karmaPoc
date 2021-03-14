@@ -12,6 +12,7 @@
       <module>./practice/java-streams</module>
       <module>./practice/java-reflection</module>
       <module>./practice/Junit5</module>
+	  <module>./practice/java-generics</module>
    </modules>
    <properties>
       <maven.compiler.source>9</maven.compiler.source>
