@@ -51,4 +51,6 @@ ENV PATH $PATH:$GRADLE_HOME/bin
 
 VOLUME $GRADLE_USER_HOME
 
-CMD [""]
+ADD scripts/entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
