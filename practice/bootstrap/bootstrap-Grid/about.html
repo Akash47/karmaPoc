@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Welcome to Bethany's Pie Shop!</title>
+  <meta name="author" content="Bethany's Pie Shop">
+  <meta name="description" content="Store front for Bethany's Pie Shop">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    body {
+      margin-top: 0px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #e6e4d9;
+      background-image: url('images/pattern.png');
+    }
+
+    #mainheader {
+      background-color: #a593c2;
+    }
+
+    nav {
+      height: 60px;
+      width: 1000px;
+      margin: 0 auto 20px;
+    }
+
+    nav>ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    nav>ul>li {
+      float: left;
+    }
+
+    nav>ul>li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 16px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #leftmenu {
+      float: left;
+      width: 30%;
+      margin-bottom: 20px;
+    }
+
+    #main {
+      float: right;
+      width: 70%;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      clear: both;
+      width: 100%;
+    }
+
+    .searchbox {
+      padding: 5px;
+      margin: 10px 10px;
+      width: 200px;
+    }
+
+    #main video {
+      width: 100% !important;
+    }
+
+    #main audio {
+      width: 100% !important;
+    }
+  </style>
+  <!-- Shim for Media -->
+  <script src="http://api.html5media.info/1.1.8/html5media.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.16/mediaelementplayer.min.css" />
+</head>
+
+<body>
+  <header id="mainheader">
+    <nav>
+      <ul>
+        <li><img src="images/cake.svg" height="55" /></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pieoverview.html">All pies</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div style="width:1000px;margin-left: auto;margin-right: auto;">
+    <aside id="leftmenu">
+      <a href="index.html"><img src="images/bethanylogo.png" /></a>
+
+      <header>
+        <h4 style="text-align: center;">Browse our pies</h4>
+      </header>
+      <ul>
+        <li><a href="pieoverview.html">All pies</a></li>
+        <li><a href="cheesecakes.html">Cheese cakes</a></li>
+        <li><a href="fruitpies.html">Fruit pies</a></li>
+        <li><a href="seasonalpies.html">Seasonal pies</a></li>
+      </ul>
+
+      <input type="search" class="searchbox" placeholder="Search our store" />
+    </aside>
+    <main id="main">
+      <article>
+        <header>
+          <h1 style="font-size:35px;color:#a593c2">Welcome to Bethany's Pie Shop</h1>
+        </header>
+
+        <p>In the video below, you can see how we decorate our mini-cupcakes.</p>
+
+        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/8grHZK4I1BU" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
+        <video id="theVideo" controls width="900" height=580 >
+          <source src="media/baking.mp4" type="audio/mp4" />
+          <source src="media/baking.webm" type="audio/webm" />
+          <track label="English" kind="subtitles" srclang="en" src="media/baking.vtt" default>
+          <track label="Spanish" kind="subtitles" srclang="es" src="media/baking-es.vtt">
+          Your browser doesn't support Video
+        </video>
+        <div>
+          <button id="playButton">Play</button>
+          <button id="pauseButton">Pause</button>
+          <button id="stopButton">Stop</button>
+        </div>
+        <p>Time: <span id="timeDisplay"></span> seconds</p>
+        <p>We also have an audio excerpt from the History of Biscuits:</p>
+        <audio controls id="theAudio" >
+          <source src="media/breadsandcake.wav" type="audio/wav" />
+          <source src="media/breadsandcake.mp3" type="audio/mp3" />
+          Your browser doesn't support Audio
+        </audio>
+      </article>
+    </main>
+
+    <footer>
+      <p>Our address is <address>Bethany's Pie Shop - Bakery Street 555 Brussels Belgium</address>
+      </p>
+      <p><small>&copy; 2020 Bethany's Pie Shop - All rights reserved</small></p>
+      <p>Contact us via <a href="mailto:info@bethanyspieshop.com">email</a></p>
+      <p><small><a href="https://www.snowball.be">Created by Snowball</a></small></p>
+    </footer>
+  </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.16/mediaelement-and-player.min.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) { 
+
+    new MediaElementPlayer("theVideo");
+    new MediaElementPlayer("theAudio");
+
+
+    let theVideo = document.getElementById("theVideo");
+    let playButton = document.getElementById("playButton");
+    let pauseButton = document.getElementById("pauseButton");
+    let stopButton = document.getElementById("stopButton");
+    let timeDisplay = document.getElementById("timeDisplay");
+
+
+    theVideo.addEventListener("ended", function () {
+      theVideo.currentTime = 0;
+    });
+
+    theVideo.addEventListener("timeupdate", function () {
+      timeDisplay.innerText = Math.floor(theVideo.currentTime);
+    });
+
+
+    playButton.addEventListener("click", function (ev) {
+      theVideo.play();
+    });
+
+    pauseButton.addEventListener("click", function (ev) {
+      theVideo.pause();
+    });
+    stopButton.addEventListener("click", function (ev) {
+      theVideo.pause();
+      theVideo.currentTime = 0;
+    });
+
+  });
+</script>
+
+</html>
