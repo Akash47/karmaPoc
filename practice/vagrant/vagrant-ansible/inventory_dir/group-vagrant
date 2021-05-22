@@ -1,0 +1,6 @@
+[vagrant:children]
+centos
+ubuntu
+
+[vagrant:vars]
+ansible_user=vagrant
