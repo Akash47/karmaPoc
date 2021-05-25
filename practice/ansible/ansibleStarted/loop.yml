@@ -1,0 +1,10 @@
+---
+- name: New users are created
+  hosts: dbservers 
+  
+  tasks: 
+    - name:
+      user:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ db_users }}"
