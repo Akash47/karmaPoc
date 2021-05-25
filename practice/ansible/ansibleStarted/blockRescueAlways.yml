@@ -1,0 +1,28 @@
+---
+- name: Utilise block, rescue,always
+  hosts: dbservers
+  
+  tasks:
+    - name: update databases
+      block: 
+        - name: Display an update message
+          debug:
+            msg: "Updating databases"
+
+        - name: Update PostgresSQL server to latest version
+          yum:
+            name: postgresql-server
+            state: latest
+
+      rescue:
+        - name: Display error message that database will be restarted
+          debug:
+            msg: "update failed. Restarting databases to correct issues"
+        - name:  Restart  the database if upgrade failed
+          service: 
+            name: postgrssql
+
+      always:
+        - name: Notify user of reboot after update attempt
+          debug:
+            msg: "Update process has completed. see previous output for status. rebooting syatem now."
