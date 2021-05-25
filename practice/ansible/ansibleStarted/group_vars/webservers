@@ -1,0 +1,6 @@
+#group vriables
+username: 
+      test: 
+        uname: test
+        description: Test user account
+

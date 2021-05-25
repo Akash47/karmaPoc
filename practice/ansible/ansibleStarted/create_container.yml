@@ -1,0 +1,13 @@
+---
+
+- name: Ensure docker containers created
+  hosts: localhost
+  tasks:
+  - name: Ensure docker container started 
+    docker_container:
+      image: centos
+      #command: bash
+      interactive: yes
+      name: "{{ item }}" 
+      state: started
+    loop: "{{ query('inventory_hostnames', 'servers') }}"

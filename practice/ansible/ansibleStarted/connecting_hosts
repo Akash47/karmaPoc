@@ -1,0 +1,10 @@
+[webservers]
+web[01:02] ansible_connection=docker
+
+[dbservers]
+db[01:02] ansible_connection=docker
+
+
+[servers:children]
+webservers
+dbservers
