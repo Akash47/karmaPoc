@@ -1,0 +1,20 @@
+---
+- name: Deploy files using a Jinja2 Template
+  hosts: all
+  
+  tasks: 
+    - name: Deploy the message of the day template
+      template:
+        src: motd.j2
+        dest: /etc/motd
+        owner: root
+        group: root
+        mode: "0644"
+
+    - name: Deploy the message of the day template
+      template:
+        src: host.j2
+        dest: /etc/host
+        owner: root
+        group: root
+        mode: "0644"
