@@ -4,8 +4,18 @@
 #  become: true
 
   tasks: 
+    - name: Load varible from encryted file
+      include_vars:
+        file: scerets
+
+    - name: Display the encrypted variable
+      debug:
+        msg: "{{ scerets }}"
+      no_log: true     
+
     - name: User created
       user: 
         name: "{{username['test']['uname']}}"
         comment: "{{username['test']['description']}}"
+        password: "{{username['test']['password']}}"
         state: present

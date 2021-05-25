@@ -1,6 +1,7 @@
-#group vriables
+#group variables
 username: 
       test: 
         uname: test
         description: Test user account
+        password: "{{ scerets }}"
 
