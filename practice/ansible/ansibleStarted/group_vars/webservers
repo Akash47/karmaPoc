@@ -5,3 +5,19 @@ username:
         description: Test user account
         password: "{{ scerets }}"
 
+      dev:
+        uname: dev
+        description: Developer user account
+        password: "{{ scerets }}"
+    
+      qa:
+        uname: qa
+        description: QA user account
+        password: "{{ scerets }}"
+
+      
+web_users:
+      - member
+      - admin
+      - developer
+

@@ -1,0 +1,6 @@
+---
+- name: New users are created
+  hosts: all
+
+  roles:
+    - users
